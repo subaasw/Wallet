@@ -1,0 +1,359 @@
+@use "sass:math";
+
+// color variables
+$background-color: rgba(229, 234, 241, 1);
+$base-color: rgba(243, 246, 249, 1);
+$neutral-color: #4c5968;
+
+$primary-color: #fa9c21;
+$danger-color: #ee225d;
+$white: #fefefe;
+$success-color: rgb(30, 192, 112);
+$blue: rgb(35, 118, 255);
+$green: rgb(24, 175, 100);
+$gray: rgb(174, 184, 196);
+
+$base-dark-color: rgb(174, 184, 196);
+
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem;
+  @return $remValue;
+}
+
+body {
+  background-color: $background-color;
+}
+
+#root {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  background-color: $base-color;
+  display: flex;
+  flex-direction: column;
+  max-width: toRem(492);
+  width: 100%;
+  border-radius: toRem(32);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.card_container {
+  background-color: $white;
+  border-radius: toRem(12);
+  margin: toRem(20) toRem(38) toRem(20);
+  padding: toRem(28);
+}
+
+.status_bar {
+  display: flex;
+  background: $white;
+  justify-content: space-between;
+  padding: toRem(28) toRem(24) toRem(16);
+  border-top-left-radius: toRem(32);
+  border-top-right-radius: toRem(32);
+
+  .status_icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      height: toRem(20);
+    }
+  }
+}
+
+.appBar_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: toRem(18);
+  padding: 0 toRem(16) toRem(16);
+  background-color: $white;
+
+  .icon_left {
+    height: toRem(24);
+    width: toRem(24);
+    color: $neutral-color;
+  }
+}
+
+.more_vert_icon {
+  color: $neutral-color;
+  height: toRem(16);
+}
+
+.menu_btn {
+  padding: toRem(6);
+  height: toRem(32);
+  width: toRem(32);
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+}
+
+.wallet_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(12);
+
+  h1 {
+    color: $neutral-color;
+    font-size: toRem(24);
+  }
+
+  .usd_price_desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: toRem(16);
+      color: $neutral-color;
+    }
+
+    .alert {
+      background-color: $danger-color;
+      padding: toRem(8) toRem(16);
+      color: $white;
+      border-radius: toRem(32);
+    }
+  }
+
+  .button_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: toRem(20);
+    margin-top: toRem(8);
+
+    button {
+      padding: toRem(10) toRem(16);
+      border: none;
+      font-size: toRem(16);
+      border-radius: toRem(6);
+      color: $white;
+      cursor: pointer;
+    }
+
+    .buy_btn {
+      background-color: $blue;
+    }
+
+    .sell_btn {
+      background-color: $green;
+    }
+  }
+}
+
+.icon_btn {
+  display: inline-flex;
+  width: fit-content;
+  align-self: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: toRem(6);
+  border-radius: toRem(6);
+
+  &:hover {
+    background-color: rgb(239, 239, 239);
+  }
+
+  svg {
+    height: toRem(28);
+    width: toRem(28);
+    color: $neutral-color;
+  }
+}
+
+.wallet_title_wrapper {
+  display: flex;
+  align-items: center;
+
+  figure {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: toRem(22);
+
+    img {
+      height: toRem(36);
+    }
+
+    figcaption {
+      font-size: toRem(16);
+      color: $neutral-color;
+    }
+  }
+}
+
+.charts_tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: toRem(-6) toRem(38);
+
+  .tab_btn {
+    font-size: toRem(14);
+    font-weight: 500;
+    padding: toRem(8) toRem(20);
+    border-radius: toRem(14);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: $neutral-color;
+  }
+
+  .bg-gray {
+    background-color: $gray;
+    color: $white;
+  }
+}
+
+.analytics_top {
+  display: flex;
+  justify-content: space-between;
+  font-size: toRem(16);
+  color: $neutral-color;
+  font-weight: 500;
+}
+
+.price_status_wrapper {
+  display: flex;
+  align-items: center;
+  gap: toRem(8);
+
+  .circle {
+    display: block;
+    height: toRem(16);
+    width: toRem(16);
+    border-radius: 50%;
+  }
+  .danger {
+    background-color: $danger-color;
+  }
+
+  .good {
+    background-color: $success-color;
+  }
+}
+
+.purchase_wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: toRem(20);
+  font-weight: 600;
+  color: $neutral-color;
+  margin: 0 toRem(38) 0;
+
+  .btc_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: toRem(8);
+    background-color: $white;
+    padding: toRem(28) 0;
+    border-radius: toRem(8);
+    margin-bottom: toRem(32);
+    flex: 0 0 45%;
+    cursor: pointer;
+  }
+
+  svg {
+    height: toRem(52);
+  }
+
+  .buy_btc {
+    svg {
+      color: $blue;
+    }
+  }
+
+  .sell_btc {
+    svg {
+      color: $danger-color;
+    }
+  }
+}
+
+.bottom_nav_bar {
+  display: flex;
+  justify-content: space-between;
+  padding: toRem(24) toRem(32);
+  background-color: $white;
+  border-bottom-left-radius: toRem(32);
+  border-bottom-right-radius: toRem(32);
+
+  .icon_btn {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  svg {
+    color: $base-dark-color;
+    &:hover {
+      color: $neutral-color;
+    }
+  }
+
+  .active_nav svg {
+    color: $neutral-color;
+  }
+}
+
+.menu_section {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.submenu_items {
+  position: absolute;
+  width: toRem(220);
+  padding: toRem(10) toRem(8);
+  right: toRem(6);
+  list-style: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: $white;
+  border-radius: toRem(4);
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: toRem(16);
+    padding: toRem(12) toRem(16);
+    cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $base-color;
+    }
+
+    &:hover {
+      background: $base-color;
+    }
+
+    svg {
+      height: toRem(16);
+      color: $neutral-color;
+    }
+  }
+
+  .text_danger {
+    color: $danger-color;
+    svg {
+      color: $danger-color;
+    }
+  }
+}
